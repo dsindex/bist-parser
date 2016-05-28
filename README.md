@@ -1,7 +1,7 @@
 # bist-parser
 
 - description
-  - test code for bist-parser
+  - test code for [bist-parser](https://github.com/elikip/bist-parser)
 
 - how to test
 ```
