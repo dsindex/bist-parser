@@ -20,6 +20,7 @@ $ cp cnn/pycnn/libcnn_shared.so bist-parser/barchybrid/
 $ ./train.sh -v -v
 $ ./test.sh -v -v
 $ cat results/test_pred.coll.txt
+  # with epoch 5 
   Labeled   attachment score: 18611 / 21943 * 100 = 84.82 %
   Unlabeled attachment score: 19280 / 21943 * 100 = 87.86 %
   Label accuracy score:       19993 / 21943 * 100 = 91.11 %
