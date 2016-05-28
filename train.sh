@@ -108,6 +108,7 @@ if (( VERBOSE_MODE > 1 )); then
 fi
 
 python=/usr/bin/python
+epoch=30
 
 function convert_corpus {
 	${python} ${CDIR}/convert.py < ${CDIR}/UD_English/en-ud-train.conllu > ${CDIR}/UD_English/en-ud-train.conllu.conv
@@ -127,7 +128,7 @@ ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--train ${CDIR}/UD_English/en-ud-train.conllu.conv \
 		--dev ${CDIR}/UD_English/en-ud-dev.conllu.conv \
 		--test ${CDIR}/UD_English/en-ud-test.conllu \
-		--epochs 5 \
+		--epochs ${epoch} \
 		--lstmdims 125 \
 		--lstmlayers 2 \
 		--bibi-lstm \

@@ -108,13 +108,14 @@ if (( VERBOSE_MODE > 1 )); then
 fi
 
 python=/usr/bin/python
+epoch=30
 
 cd ${CDIR}/bist-parser/barchybrid
 ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--predict \
 		--outdir ${CDIR}/results \
 		--test ${CDIR}/UD_English/en-ud-test.conllu.conv \
-		--model ${CDIR}/results/barchybrid.model5 \
+		--model ${CDIR}/results/barchybrid.model${epoch} \
 		--params ${CDIR}/results/params.pickle
 
 close_fd
