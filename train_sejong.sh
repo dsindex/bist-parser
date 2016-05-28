@@ -118,6 +118,7 @@ cd ${CDIR}/sejong
 ./c2d.sh
 cd ${CDIR}
 
+cd ${CDIR}/bist-parser/barchybrid/src
 ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--cnn-seed 123456789 \
 		--outdir ${CDIR}/results \

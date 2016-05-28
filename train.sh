@@ -120,6 +120,7 @@ if [ ! -e ${CDIR}/results ]; then
 	mkdir ${CDIR}/results
 fi
 
+cd ${CDIR}/bist-parser/barchybrid/src
 ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--cnn-seed 123456789 \
 		--outdir ${CDIR}/results \

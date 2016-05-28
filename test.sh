@@ -109,7 +109,7 @@ fi
 
 python=/usr/bin/python
 
-
+cd ${CDIR}/bist-parser/barchybrid/src
 ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--predict \
 		--outdir ${CDIR}/results \
