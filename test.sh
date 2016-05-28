@@ -114,8 +114,8 @@ ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--predict \
 		--outdir ${CDIR}/results \
 		--test ${CDIR}/UD_English/en-ud-test.conllu \
-		--model [trained model file] \
-		--params [param file generate during training]
+		--model ${CDIR}/barchybrid.model30 \
+		--params ${CDIR}/results/params.pickle
 
 close_fd
 

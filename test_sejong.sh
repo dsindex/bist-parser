@@ -113,17 +113,17 @@ python=/usr/bin/python
 ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--predict \
 		--outdir ${CDIR}/results \
-		--test ${CDIR}/UD_English/en-ud-test.conllu \
-		--model [trained model file] \
-		--params [param file generate during training]
+		--test ${CDIR}/sejong/wdir/deptree.txt.v3.test \
+		--model ${CDIR}/barchybrid.model30 \
+		--params ${CDIR}/results/params.pickle
 
 function evaluate_parser_by_eoj {
-	for SET in training tuning test; do
+	for SET in test; do
 		cut -f8 ${CDIR}/sejong/wdir/deptree.txt.v3.${SET} > ${CDIR}/sejong/wdir/deptree.txt.v3.${SET}.deprel
-		paste ${TMP_DIR}/brain_parser/greedy/${LP_PARAMS}/parsed-${SET}-corpus ${CDIR}/sejong/wdir/deptree.txt.v3.${SET}.deprel > ${TMP_DIR}/brain_parser/greedy/${LP_PARAMS}/parsed-${SET}-corpus-add
-		${python} ${CDIR}/sejong/align_r.py < ${TMP_DIR}/brain_parser/greedy/${LP_PARAMS}/parsed-${SET}-corpus-add > ${TMP_DIR}/brain_parser/greedy/${LP_PARAMS}/parsed-${SET}-corpus-eoj
-		${python} ${CDIR}/sejong/eval.py -a ${CDIR}/sejong/wdir/deptree.txt.v2.${SET} -b ${TMP_DIR}/brain_parser/greedy/${LP_PARAMS}/parsed-${SET}-corpus-eoj \
-			> ${TMP_DIR}/brain_parser/greedy/${LP_PARAMS}/parsed-${SET}-corpus-eoj-ret
+		paste output_file ${CDIR}/sejong/wdir/deptree.txt.v3.${SET}.deprel > output_file-add
+		${python} ${CDIR}/sejong/align_r.py < output_file-add > output_file-eoj
+		${python} ${CDIR}/sejong/eval.py -a ${CDIR}/sejong/wdir/deptree.txt.v2.${SET} -b output_file-eoj \
+			> output_file-eoj-ret
 	done
 }
 
