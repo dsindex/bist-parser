@@ -116,7 +116,9 @@ function convert_corpus {
 }
 convert_corpus
 
-mkdir ${CDIR}/results
+if [ ! -e ${CDIR}/results ]; then
+	mkdir ${CDIR}/results
+fi
 
 ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--cnn-seed 123456789 \

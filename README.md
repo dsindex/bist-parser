@@ -16,7 +16,10 @@ $ git clone https://github.com/elikip/bist-parser.git
 $ ls 
 README.md  bist-parser  cnn  eigen  libcnn_shared.so  xor.py
 (download univeral treebank corpus, http://universaldependencies.org/#en, for example UD_English)
-$ mkdir results
-$ python bist-parser/barchybrid/src/parser.py --cnn-seed 123456789 --outdir results --train UD_English/en-ud-train.conllu --dev UD_English/en-ud-dev.conllu --test UD_English/en-ud-test.conllu --epochs 30 --lstmdims 125 --lstmlayers 2 --bibi-lstm --k 3 --usehead --userl
+$ ./train.sh -v -v
+(training korean sejong corpus)
+(get korean sejong corpus from somewhere;;)
+$ cp sejong_treebank.txt.v1 sejong/
+$ ./train_sejong.sh -v -v
 ....
 ```

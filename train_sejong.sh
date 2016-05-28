@@ -109,7 +109,30 @@ fi
 
 python=/usr/bin/python
 
-function evaluate_pretrained_parser_by_eoj {
+if [ ! -e ${CDIR}/results ]; then
+	mkdir ${CDIR}/results
+fi
+
+cd ${CDIR}/sejong
+./split.sh
+./c2d.sh
+cd ${CDIR}
+
+${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
+		--cnn-seed 123456789 \
+		--outdir ${CDIR}/results \
+		--train ${CDIR}/sejong/deptree.txt.v3.training \
+		--dev ${CDIR}/sejong/deptree.txt.v3.tuning \
+		--test ${CDIR}/sejong/deptree.txt.v3.test \
+		--epochs 30 \
+		--lstmdims 125 \
+		--lstmlayers 2 \
+		--bibi-lstm \
+		--k 3 \
+		--usehead \
+		--userl
+
+function evaluate_parser_by_eoj {
 	for SET in training tuning test; do
 		cut -f8 ${CDIR}/sejong/wdir/deptree.txt.v3.${SET} > ${CDIR}/sejong/wdir/deptree.txt.v3.${SET}.deprel
 		paste ${TMP_DIR}/brain_parser/greedy/${LP_PARAMS}/parsed-${SET}-corpus ${CDIR}/sejong/wdir/deptree.txt.v3.${SET}.deprel > ${TMP_DIR}/brain_parser/greedy/${LP_PARAMS}/parsed-${SET}-corpus-add
