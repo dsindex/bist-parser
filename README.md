@@ -20,7 +20,7 @@ $ cp cnn/pycnn/libcnn_shared.so bist-parser/barchybrid/
 $ ./train.sh -v -v
 $ ./test.sh -v -v
 $ cat results/test_pred.coll.txt
-  # with epoch 5 
+  # epoch 5 
   Labeled   attachment score: 18611 / 21943 * 100 = 84.82 %
   Unlabeled attachment score: 19280 / 21943 * 100 = 87.86 %
   Label accuracy score:       19993 / 21943 * 100 = 91.11 %
@@ -31,9 +31,11 @@ $ cp sejong_treebank.txt.v1 sejong/
 $ ./train_sejong.sh -v -v
 $ ./test_sejong.sh -v -v
 ...
+# epoch 5
 accuracy(UAS) = 0.892086
 ...
 $ cat results/test_pred.coll.txt
+  # epoch 5
   Labeled   attachment score: 81723 / 88608 * 100 = 92.23 %
   Unlabeled attachment score: 83967 / 88608 * 100 = 94.76 %
   Label accuracy score:       85909 / 88608 * 100 = 96.95 %
