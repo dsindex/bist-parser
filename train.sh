@@ -127,7 +127,7 @@ ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--train ${CDIR}/UD_English/en-ud-train.conllu.conv \
 		--dev ${CDIR}/UD_English/en-ud-dev.conllu.conv \
 		--test ${CDIR}/UD_English/en-ud-test.conllu \
-		--epochs 30 \
+		--epochs 2 \
 		--lstmdims 125 \
 		--lstmlayers 2 \
 		--bibi-lstm \

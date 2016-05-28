@@ -114,7 +114,7 @@ ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--predict \
 		--outdir ${CDIR}/results \
 		--test ${CDIR}/sejong/wdir/deptree.txt.v3.test \
-		--model ${CDIR}/barchybrid.model30 \
+		--model ${CDIR}/barchybrid.model10 \
 		--params ${CDIR}/results/params.pickle
 
 function evaluate_parser_by_eoj {

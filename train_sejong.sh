@@ -125,7 +125,7 @@ ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--train ${CDIR}/sejong/wdir/deptree.txt.v3.training \
 		--dev ${CDIR}/sejong/wdir/deptree.txt.v3.tuning \
 		--test ${CDIR}/sejong/wdir/deptree.txt.v3.test \
-		--epochs 30 \
+		--epochs 10 \
 		--lstmdims 125 \
 		--lstmlayers 2 \
 		--bibi-lstm \
