@@ -108,24 +108,31 @@ if (( VERBOSE_MODE > 1 )); then
 fi
 
 python=/usr/bin/python
+epoch=10
 
-cd ${CDIR}/bist-parser/barchybrid/src
-${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
-		--predict \
-		--outdir ${CDIR}/results \
-		--test ${CDIR}/sejong/wdir/deptree.txt.v3.test \
-		--model ${CDIR}/barchybrid.model10 \
-		--params ${CDIR}/results/params.pickle
+function evaluate_parser {
+	local _epoch=$1
+	cd ${CDIR}/bist-parser/barchybrid
+	${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
+			--predict \
+			--outdir ${CDIR}/results \
+			--test ${CDIR}/sejong/wdir/deptree.txt.v3.test \
+			--model ${CDIR}/results/barchybrid.model${epoch} \
+			--params ${CDIR}/results/params.pickle
+}
 
 function evaluate_parser_by_eoj {
 	for SET in test; do
 		cut -f8 ${CDIR}/sejong/wdir/deptree.txt.v3.${SET} > ${CDIR}/sejong/wdir/deptree.txt.v3.${SET}.deprel
-		paste output_file ${CDIR}/sejong/wdir/deptree.txt.v3.${SET}.deprel > output_file-add
-		${python} ${CDIR}/sejong/align_r.py < output_file-add > output_file-eoj
-		${python} ${CDIR}/sejong/eval.py -a ${CDIR}/sejong/wdir/deptree.txt.v2.${SET} -b output_file-eoj \
-			> output_file-eoj-ret
+		paste ${CDIR}/results/test_pred.conll ${CDIR}/sejong/wdir/deptree.txt.v3.${SET}.deprel > ${CDIR}/results/test_pred.conll-add
+		${python} ${CDIR}/sejong/align_r.py < ${CDIR}/results/test_pred.conll-add > ${CDIR}/results/test_pred.conll-eoj
+		${python} ${CDIR}/sejong/eval.py -a ${CDIR}/sejong/wdir/deptree.txt.v2.${SET} -b ${CDIR}/results/test_pred.conll-eoj \
+			> ${CDIR}/results/test_pred.conll-eoj-ret
 	done
 }
+
+evaluate_parser ${eopch}
+evaluate_parser_by_eoj
 
 
 close_fd

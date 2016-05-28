@@ -109,12 +109,12 @@ fi
 
 python=/usr/bin/python
 
-cd ${CDIR}/bist-parser/barchybrid/src
+cd ${CDIR}/bist-parser/barchybrid
 ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--predict \
 		--outdir ${CDIR}/results \
-		--test ${CDIR}/UD_English/en-ud-test.conllu \
-		--model ${CDIR}/barchybrid.model2 \
+		--test ${CDIR}/UD_English/en-ud-test.conllu.conv \
+		--model ${CDIR}/results/barchybrid.model5 \
 		--params ${CDIR}/results/params.pickle
 
 close_fd

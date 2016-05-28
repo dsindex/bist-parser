@@ -120,14 +120,14 @@ if [ ! -e ${CDIR}/results ]; then
 	mkdir ${CDIR}/results
 fi
 
-cd ${CDIR}/bist-parser/barchybrid/src
+cd ${CDIR}/bist-parser/barchybrid
 ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--cnn-seed 123456789 \
 		--outdir ${CDIR}/results \
 		--train ${CDIR}/UD_English/en-ud-train.conllu.conv \
 		--dev ${CDIR}/UD_English/en-ud-dev.conllu.conv \
 		--test ${CDIR}/UD_English/en-ud-test.conllu \
-		--epochs 2 \
+		--epochs 5 \
 		--lstmdims 125 \
 		--lstmlayers 2 \
 		--bibi-lstm \

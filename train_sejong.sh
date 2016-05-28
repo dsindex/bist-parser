@@ -108,6 +108,7 @@ if (( VERBOSE_MODE > 1 )); then
 fi
 
 python=/usr/bin/python
+epoch=10
 
 if [ ! -e ${CDIR}/results ]; then
 	mkdir ${CDIR}/results
@@ -118,14 +119,14 @@ cd ${CDIR}/sejong
 ./c2d.sh
 cd ${CDIR}
 
-cd ${CDIR}/bist-parser/barchybrid/src
+cd ${CDIR}/bist-parser/barchybrid
 ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--cnn-seed 123456789 \
 		--outdir ${CDIR}/results \
 		--train ${CDIR}/sejong/wdir/deptree.txt.v3.training \
 		--dev ${CDIR}/sejong/wdir/deptree.txt.v3.tuning \
 		--test ${CDIR}/sejong/wdir/deptree.txt.v3.test \
-		--epochs 10 \
+		--epochs ${epoch} \
 		--lstmdims 125 \
 		--lstmlayers 2 \
 		--bibi-lstm \
