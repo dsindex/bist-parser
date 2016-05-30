@@ -8,6 +8,7 @@
 $ git clone https://github.com/dsindex/bist-parser.git
 $ cd bist-parser
 (after installing cnn, eigen)
+$ cd cnn/pycnn; make install
 (for test)
 $ cp cnn/pycnn/libcnn_shared.so .
 $ cp cnn/pyexamples/xor.py .
