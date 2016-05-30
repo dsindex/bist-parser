@@ -40,5 +40,18 @@ $ cat results/test_pred.coll.txt
   Unlabeled attachment score: 83967 / 88608 * 100 = 94.76 %
   Label accuracy score:       85909 / 88608 * 100 = 96.95 %
   ...
+$ more results/test_pred.conll-eoj-ret
+; 프랑스의 세계적인 의상 디자이너 엠마누엘 웅가로가 실내 장식용 직물 디자이너로 나섰다.
+1	프랑스의	프랑스/NNP + 의/JKG	NP_MOD	4	NP_MOD	6	FAILURE
+2	세계적인	세계/NNG + 적/XSN + 이/VCP + ᆫ/ETM	VNP_MOD	4	VNP_MOD	4	SUCCESS
+3	의상	의상/NNG	NP	4	NP	4	SUCCESS
+4	디자이너	디자이너/NNG	NP	6	NP	6	SUCCESS
+5	엠마누엘	엠마누엘/NNP	NP	6	NP	6	SUCCESS
+6	웅가로가	웅가로/NNP + 가/JKS	NP_SBJ	11	NP_SBJ	11	SUCCESS
+7	실내	실내/NNG	NP	8	NP	9	FAILURE
+8	장식용	장식/NNG + 용/XSN	NP	9	NP	9	SUCCESS
+9	직물	직물/NNG	NP	10	NP	10	SUCCESS
+10	디자이너로	디자이너/NNG + 로/JKB	NP_AJT	11	NP_AJT	11	SUCCESS
+11	나섰다.	나서/VV + 었/EP + 다/EF + ./SF	VP	0	VP	0	SUCCESS
 ....
 ```
