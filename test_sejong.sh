@@ -131,7 +131,7 @@ function evaluate_parser_by_eoj {
 	done
 }
 
-evaluate_parser ${eopch}
+evaluate_parser ${epoch}
 evaluate_parser_by_eoj
 
 
