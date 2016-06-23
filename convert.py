@@ -34,7 +34,10 @@ if __name__ == '__main__':
 			print line
 			continue
 		tokens = line.split('\t')
-		tokens[3] = tokens[4] # UPOS <- XPOS
+		if tokens[4] == '_' :
+			tokens[4] = tokens[3] # there is no XPOS
+		else :
+			tokens[3] = tokens[4] # UPOS <- XPOS
 		print '\t'.join(tokens)
 
 	durationTime = time.time() - startTime

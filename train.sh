@@ -110,12 +110,16 @@ fi
 python=/usr/bin/python
 epoch=30
 
+CORPUS_DIR=${CDIR}/UD_English
+#CORPUS_DIR=${CDIR}/UD_French
+
 function convert_corpus {
-	${python} ${CDIR}/convert.py < ${CDIR}/UD_English/en-ud-train.conllu > ${CDIR}/UD_English/en-ud-train.conllu.conv
-	${python} ${CDIR}/convert.py < ${CDIR}/UD_English/en-ud-dev.conllu > ${CDIR}/UD_English/en-ud-dev.conllu.conv
-	${python} ${CDIR}/convert.py < ${CDIR}/UD_English/en-ud-test.conllu > ${CDIR}/UD_English/en-ud-test.conllu.conv
+	corpus_dir=$1
+	for corpus in $(ls ${corpus_dir}/*.conllu); do
+		${python} ${CDIR}/convert.py < ${corpus} > ${corpus}.conv
+	done
 }
-convert_corpus
+convert_corpus ${CORPUS_DIR}
 
 if [ ! -e ${CDIR}/results ]; then
 	mkdir ${CDIR}/results
@@ -125,9 +129,9 @@ cd ${CDIR}/bist-parser/barchybrid
 ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--cnn-seed 123456789 \
 		--outdir ${CDIR}/results \
-		--train ${CDIR}/UD_English/en-ud-train.conllu.conv \
-		--dev ${CDIR}/UD_English/en-ud-dev.conllu.conv \
-		--test ${CDIR}/UD_English/en-ud-test.conllu \
+		--train ${CORPUS_DIR}/en-ud-train.conllu.conv \
+		--dev ${CORPUS_DIR}/en-ud-dev.conllu.conv \
+		--test ${CORPUS_DIR}/en-ud-test.conllu \
 		--epochs ${epoch} \
 		--lstmdims 125 \
 		--lstmlayers 2 \

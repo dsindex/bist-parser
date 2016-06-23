@@ -110,11 +110,13 @@ fi
 python=/usr/bin/python
 epoch=30
 
+CORPUS_DIR=${CDIR}/UD_English
+
 cd ${CDIR}/bist-parser/barchybrid
 ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
 		--predict \
 		--outdir ${CDIR}/results \
-		--test ${CDIR}/UD_English/en-ud-test.conllu.conv \
+		--test ${CORPUS_DIR}/en-ud-test.conllu.conv \
 		--model ${CDIR}/results/barchybrid.model${epoch} \
 		--params ${CDIR}/results/params.pickle
 
