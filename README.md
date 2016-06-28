@@ -4,7 +4,7 @@
   - test code for [bist-parser](https://github.com/elikip/bist-parser)
 
 - how to test
-```
+```shell
 $ git clone https://github.com/dsindex/bist-parser.git
 $ cd bist-parser
 (after installing cnn, eigen)
