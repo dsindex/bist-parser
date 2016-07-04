@@ -1,9 +1,9 @@
 # bist-parser
 
-- description
+### description
   - test code for [bist-parser](https://github.com/elikip/bist-parser)
 
-- how to test
+### how to test
 ```shell
 $ git clone https://github.com/dsindex/bist-parser.git
 $ cd bist-parser
@@ -19,7 +19,7 @@ README.md  bist-parser  cnn  eigen  libcnn_shared.so  xor.py
 (download univeral treebank corpus, http://universaldependencies.org/#en, for example UD_English)
 $ cp cnn/pycnn/libcnn_shared.so bist-parser/barchybrid/
 $ ./train.sh -v -v
-$ ./test.sh -v -v
+$ ./eval.sh -v -v
 $ cat results/test_pred.coll.txt
   # epoch 5 
   Labeled   attachment score: 18611 / 21943 * 100 = 84.82 %
@@ -30,7 +30,7 @@ $ cat results/test_pred.coll.txt
 (get korean sejong corpus from somewhere;;)
 $ cp sejong_treebank.txt.v1 sejong/
 $ ./train_sejong.sh -v -v
-$ ./test_sejong.sh -v -v
+$ ./eval_sejong.sh -v -v
 ...
 # epoch 5
 accuracy(UAS) = 0.892086
