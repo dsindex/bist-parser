@@ -31,7 +31,6 @@ if __name__ == '__main__':
 			print ''
 			continue
 		if line[0] == '#' :
-			print line
 			continue
 
 		tokens = line.split('\t')
