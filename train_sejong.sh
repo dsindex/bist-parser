@@ -137,7 +137,7 @@ cd ${CDIR}
 
 cd ${CDIR}/bist-parser/barchybrid
 ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
-		--cnn-seed 123456789 \
+		--dynet-seed 123456789 \
 		--outdir ${CDIR}/results \
 		--train ${CDIR}/sejong/wdir/deptree.txt.v3.training \
 		--dev ${CDIR}/sejong/wdir/deptree.txt.v3.tuning \

@@ -142,7 +142,7 @@ mkdir -p ${CDIR}/results
 
 cd ${CDIR}/bist-parser/barchybrid
 ${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
-		--cnn-seed 123456789 \
+		--dynet-seed 123456789 \
 		--outdir ${CDIR}/results \
 		--train ${CORPUS_DIR}/en-ud-train.conllu.conv \
 		--dev ${CORPUS_DIR}/en-ud-dev.conllu.conv \

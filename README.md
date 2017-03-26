@@ -7,17 +7,9 @@
 ```shell
 $ git clone https://github.com/dsindex/bist-parser.git
 $ cd bist-parser
-(after installing cnn, eigen)
-$ cd cnn/pycnn; make install
-(for test)
-$ cp cnn/pycnn/libcnn_shared.so .
-$ cp cnn/pyexamples/xor.py .
-$ python xor.py
+(after installing dynet, eigen to system.
+ http://dynet.readthedocs.io/en/latest/python.html)
 $ git clone https://github.com/elikip/bist-parser.git
-$ ls 
-README.md  bist-parser  cnn  eigen  libcnn_shared.so  xor.py
-(download univeral treebank corpus, http://universaldependencies.org/#en, for example UD_English)
-$ cp cnn/pycnn/libcnn_shared.so bist-parser/barchybrid/
 $ ./train.sh -v -v
 $ ./eval.sh -v -v
 $ cat results/test_pred.coll.txt
