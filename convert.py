@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
 		tokens = line.split('\t')
 		id = tokens[0]
-		if '.' in id : continue   # ex) 8.1
+		if '.' in id : continue   # ex) 8.1 (ud 2.0)
 		if tokens[4] == '_' :
 			tokens[4] = tokens[3] # there is no XPOS
 		else :
