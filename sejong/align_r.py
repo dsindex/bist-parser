@@ -34,7 +34,10 @@ def spill(bucket) :
 	n_bucket = []
 	prev_deprel = None
 	for line in bucket :
-		mseq,morph,_,tag,_,_,mgov,mptst,_,_,deprel = line.split('\t',10)
+		try : mseq,morph,_,tag,_,_,mgov,mptst,_,_,deprel = line.split('\t',10)
+		except :
+			sys.stderr.write('[FORMAT ERROR]' + '\t' + line + '\n')
+			return False
 		mseq = int(mseq)
 		mgov = int(mgov)
 		if prev_deprel == None :
@@ -51,18 +54,24 @@ def spill(bucket) :
 		seq, out = n_spill(n_bucket, seq, mseq2seq)
 		result.append(out)
 
+	out_list = []
 	for seq, mseq_list, analyzed, mgov_list, ptst in result :
 		if VERBOSE : 
-			print str(seq) + '\t' +  ','.join([str(e) for e in mseq_list]) + '\t' + \
-				' + '.join(analyzed) + '\t' + ','.join([str(e) for e in mgov_list]) + \
-				'\t' + ptst
+			print str(seq) + '\t' +  \
+				  ','.join([str(e) for e in mseq_list]) + '\t' + \
+				  ' + '.join(analyzed) + '\t' + \
+				  ','.join([str(e) for e in mgov_list]) + '\t' + \
+				  ptst
 		gov = mseq2seq[mgov_list[-1]] 
-		p = str(seq) + '\t' + ' + '.join(analyzed) + '\t' + ptst + '\t' + str(gov)
-		print p
 		if seq == gov :
-			sys.stderr.write('[ERROR]' + '\t' + p + '\n')
+			sys.stderr.write('[SELF EDGE]' + '\t' + line + '\n')
+			return False
+		out = str(seq) + '\t' + ' + '.join(analyzed) + '\t' + ptst + '\t' + str(gov)
+		out_list.append(out)
 
+	print '\n'.join(out_list)
 	print '\n',
+	return True
 
 if __name__ == '__main__':
 
