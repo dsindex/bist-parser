@@ -30,8 +30,7 @@ if __name__ == '__main__':
         if not line :
             print ''
             continue
-        if line[0] == '#' :
-            print line
+        if line[0] == '#' : # skip comments
             continue
 
         tokens = line.split('\t')
