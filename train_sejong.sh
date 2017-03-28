@@ -137,8 +137,8 @@ cd ${CDIR}/sejong
 ./c2d.sh
 cd ${CDIR}
 
-cd ${CDIR}/bist-parser/barchybrid
-${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
+cd ${PDIR}/bist-parser/barchybrid
+${python} ${PDIR}/bist-parser/barchybrid/src/parser.py \
 		--dynet-seed 123456789 \
 		--outdir ${CDIR}/results \
 		--train ${CDIR}/sejong/wdir/deptree.txt.v3.training \

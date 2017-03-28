@@ -132,8 +132,8 @@ epoch=30
 
 CORPUS_DIR=${CDIR}/UD_English
 
-cd ${CDIR}/bist-parser/barchybrid
-${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
+cd ${PDIR}/bist-parser/barchybrid
+${python} ${PDIR}/bist-parser/barchybrid/src/parser.py \
 		--predict \
 		--outdir ${CDIR}/results \
 		--test ${CORPUS_DIR}/en-ud-test.conllu.conv \

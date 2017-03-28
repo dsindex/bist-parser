@@ -5,12 +5,17 @@
 
 ### how to test
 ```shell
-$ git clone https://github.com/dsindex/bist-parser.git
-$ cd bist-parser
-# install dynet, http://dynet.readthedocs.io/en/latest/python.html
 $ git clone https://github.com/elikip/bist-parser.git
+# install dynet, http://dynet.readthedocs.io/en/latest/python.html
 $ ls
-README.md        UD_English/      bist-parser/     convert.py       dynet-base/      eval.sh*         eval_sejong.sh*  results/         sejong/          train.sh*        train_sejong.sh*
+LICENSE     README.md   barchybrid/ bmstparser/ dynet-base/
+
+$ git clone https://github.com/dsindex/bist-parser.git work
+$ ls
+LICENSE     README.md   barchybrid/ bmstparser/ dynet-base/ work/
+
+$ cd work
+
 # training with UD_English corpus.
 $ ./train.sh -v -v
 $ ./eval.sh -v -v
@@ -20,6 +25,7 @@ $ cat results/test_pred.coll.txt
   Unlabeled attachment score: 19280 / 21943 * 100 = 87.86 %
   Label accuracy score:       19993 / 21943 * 100 = 91.11 %
   ...
+
 # training with Sejong corpus.
 # the corpus is accessible through the path on this image : https://raw.githubusercontent.com/dsindex/blog/master/images/url_sejong.png
 # copy sejong_treebank.txt.v1 to `sejong` directory.

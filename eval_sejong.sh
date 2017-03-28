@@ -132,8 +132,8 @@ epoch=10
 
 function evaluate_parser {
 	local _epoch=$1
-	cd ${CDIR}/bist-parser/barchybrid
-	${python} ${CDIR}/bist-parser/barchybrid/src/parser.py \
+	cd ${PDIR}/bist-parser/barchybrid
+	${python} ${PDIR}/bist-parser/barchybrid/src/parser.py \
 			--predict \
 			--outdir ${CDIR}/results \
 			--test ${CDIR}/sejong/wdir/deptree.txt.v3.test \
