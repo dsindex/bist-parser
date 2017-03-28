@@ -142,8 +142,8 @@ convert_corpus ${CORPUS_DIR}
 
 mkdir -p ${CDIR}/results
 
-cd ${PDIR}/bist-parser/barchybrid
-${python} ${PDIR}/bist-parser/barchybrid/src/parser.py \
+cd ${PDIR}/barchybrid
+${python} ${PDIR}/barchybrid/src/parser.py \
 		--dynet-seed 123456789 \
 		--outdir ${CDIR}/results \
 		--train ${CORPUS_DIR}/en-ud-train.conllu.conv \
