@@ -22,7 +22,7 @@ $ cat results/test_pred.coll.txt
   ...
 # training with Sejong corpus.
 # the corpus is accessible through the path on this image : https://raw.githubusercontent.com/dsindex/blog/master/images/url_sejong.png
-$ cp sejong_treebank.txt.v1 sejong/
+# copy sejong_treebank.txt.v1 to `sejong` directory.
 $ ./train_sejong.sh -v -v
 $ ./eval_sejong.sh -v -v
 ...
