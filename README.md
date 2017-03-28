@@ -7,9 +7,11 @@
 ```shell
 $ git clone https://github.com/dsindex/bist-parser.git
 $ cd bist-parser
-(after installing dynet, eigen to system.
- http://dynet.readthedocs.io/en/latest/python.html)
+# install dynet, http://dynet.readthedocs.io/en/latest/python.html
 $ git clone https://github.com/elikip/bist-parser.git
+$ ls
+README.md        UD_English/      bist-parser/     convert.py       dynet-base/      eval.sh*         eval_sejong.sh*  results/         sejong/          train.sh*        train_sejong.sh*
+# training with UD_English corpus.
 $ ./train.sh -v -v
 $ ./eval.sh -v -v
 $ cat results/test_pred.coll.txt
@@ -18,8 +20,8 @@ $ cat results/test_pred.coll.txt
   Unlabeled attachment score: 19280 / 21943 * 100 = 87.86 %
   Label accuracy score:       19993 / 21943 * 100 = 91.11 %
   ...
-(training korean sejong corpus)
-(get korean sejong corpus from somewhere;;)
+# training with Sejong corpus.
+# the corpus is accessible through the path on this image : https://raw.githubusercontent.com/dsindex/blog/master/images/url_sejong.png
 $ cp sejong_treebank.txt.v1 sejong/
 $ ./train_sejong.sh -v -v
 $ ./eval_sejong.sh -v -v
